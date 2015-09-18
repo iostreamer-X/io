@@ -1,37 +1,23 @@
 package io.streamer
 
 import akka.actor._
-import akka.pattern.ask
-import scala.concurrent.duration._
-import akka.util.Timeout
-import scala.concurrent.ExecutionContext.Implicits.global
-
-case object Tick
-case object Get
-
-class Counter extends Actor {
-  var count = 0
-
-  def receive = {
-    case Tick => count += 1
-    case Get  => sender ! count
-  }
-}
+import java.io.DataInputStream
 
 object Io extends App {
-  val system = ActorSystem("Io")
-
-  val counter = system.actorOf(Props[Counter])
-
-  counter ! Tick
-  counter ! Tick
-  counter ! Tick
-
-  implicit val timeout = Timeout(5 seconds)
-
-  (counter ? Get) onSuccess {
-    case count => println("Count is " + count)
-  }
-
-  system.shutdown()
+  val system = ActorSystem("IO")
+  new Server(9000,system, {
+      socket =>
+        val inputStream = new DataInputStream(socket.getInputStream)
+        var isQuit=false
+        while(!isQuit){
+          val inData = inputStream.readLine
+          println(inData)
+          if(inData=="quit")
+            isQuit = true 
+        }
+        inputStream.close
+        socket.close
+        
+      }
+  ).start()
 }
