@@ -11,7 +11,7 @@ object Io extends App {
         var isQuit=false
         while(!isQuit){
           val inData = inputStream.readLine
-          println(inData)
+          println(inData+":"+socket.getRemoteSocketAddress)
           if(inData=="quit")
             isQuit = true 
         }
