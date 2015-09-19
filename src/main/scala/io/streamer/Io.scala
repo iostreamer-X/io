@@ -1,7 +1,7 @@
 package io.streamer
 
 import akka.actor._
-import java.io.DataInputStream
+import java.io.{DataInputStream,DataOutputStream}
 
 object Io extends App {
   val system = ActorSystem("IO")
@@ -14,9 +14,11 @@ object Io extends App {
             case null => "quit"
             case validString:String => validString
           }
-          println(inData+":"+socket.getRemoteSocketAddress+" "+inputStream)
+          println(inData+":"+socket.getRemoteSocketAddress)
           if(inData=="quit")
             isQuit = true 
+          if(inData == "ex")
+            throw new Exception("dayum")  
         }
 
         inputStream.close
@@ -24,4 +26,14 @@ object Io extends App {
         
       }
   ).start()
+
+  new Client("localhost",9000,{
+      socket =>
+        val outputStream = new DataOutputStream(socket.getOutputStream)
+        outputStream.writeUTF("hello")
+        outputStream.flush()
+        outputStream.close
+        socket.close
+    }
+  ).beam()
 }
