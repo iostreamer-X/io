@@ -6,6 +6,7 @@ import java.net.{ServerSocket, Socket}
 class ServerConnection(execute:Socket => Unit) extends Actor{
 	def receive={
 		case socket:Socket =>
+			println("got socket "+socket.getRemoteSocketAddress)
 			execute(socket)
 
 		case _ =>

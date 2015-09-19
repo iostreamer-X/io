@@ -10,11 +10,15 @@ object Io extends App {
         val inputStream = new DataInputStream(socket.getInputStream)
         var isQuit=false
         while(!isQuit){
-          val inData = inputStream.readLine
-          println(inData+":"+socket.getRemoteSocketAddress)
+          val inData = inputStream.readLine match {
+            case null => "quit"
+            case validString:String => validString
+          }
+          println(inData+":"+socket.getRemoteSocketAddress+" "+inputStream)
           if(inData=="quit")
             isQuit = true 
         }
+
         inputStream.close
         socket.close
         
