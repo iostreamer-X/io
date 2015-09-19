@@ -15,6 +15,8 @@ Here is an example:
 ```scala
 import java.io.{DataInputStream,DataOutputStream}
 import scala.concurrent.ExecutionContext.Implicits.global
+import io.streamer.Server
+import io.streamer.Client
 
 object Io extends App {
   new Server(9000, {
