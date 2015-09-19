@@ -1,34 +1,36 @@
 package io.streamer
 
 import akka.actor._
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 import java.net.{ServerSocket, Socket}
+import rx.lang.scala.{JavaConversions, Observable}
 
-class ServerConnection(execute:Socket => Unit) extends Actor{
-	def receive={
-		case socket:Socket =>
-			try{
-				execute(socket)
-			}
-			catch{
-				case e:Exception => 
-					println(e)
-					socket.close
-			}	
-
-		case _ =>
-	}
-}
-
-class Server(port:Int, system:ActorSystem, execute:Socket => Unit) {
+class Server[T](port:Int, execute:Socket => T) {
 	def start()={
-		new Thread {
-			override def run() = {
-				val serverSocket = new ServerSocket(port)
-				while(true){
-					val socket = serverSocket.accept()
-					system.actorOf(Props(new ServerConnection(execute))) ! socket
+		Observable[T](
+			observer => {
+					new Thread {
+						override def run() = {
+							val serverSocket = new ServerSocket(port)
+							while(true){
+								val socket = serverSocket.accept()
+								new Thread{
+									override def run() = {
+										try{
+											observer.onNext(execute(socket))
+										}
+										catch{
+											case t:Throwable =>
+												socket.close
+										}
+									}
+								}.start
+							}
+						}
+					}.start()
 				}
-			}
-		}.start()
+			)
+		
 	}
 }
