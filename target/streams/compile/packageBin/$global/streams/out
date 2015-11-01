@@ -1,0 +1,31 @@
+[0m[[0minfo[0m] [0mPackaging /home/iostreamer/io/io/target/scala-2.11/io_2.11-0.1-SNAPSHOT.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Server.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Server.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io$.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io$.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Server$$anonfun$start$1$$anon$1$$anon$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Server$$anonfun$start$1$$anon$1$$anon$2.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io$delayedInit$body.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io$delayedInit$body.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Client$$anonfun$beam$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Client$$anonfun$beam$1.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io.class[0m
+[0m[[0mdebug[0m] [0m	io[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Server$$anonfun$start$1$$anon$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Server$$anonfun$start$1$$anon$1.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io$$anonfun$3.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Server$$anonfun$start$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Server$$anonfun$start$1.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Client.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Client.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io$$anonfun$1.class[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io$$anonfun$2.class[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/target/scala-2.11/classes/io/streamer/Io$$anonfun$2.class[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m

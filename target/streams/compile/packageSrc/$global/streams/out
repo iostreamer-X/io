@@ -1,0 +1,9 @@
+[0m[[0minfo[0m] [0mPackaging /home/iostreamer/io/io/target/scala-2.11/io_2.11-0.1-SNAPSHOT-sources.jar ...[0m
+[0m[[0mdebug[0m] [0mInput file mappings:[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Io.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/src/main/scala/io/streamer/Io.scala[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Client.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/src/main/scala/io/streamer/Client.scala[0m
+[0m[[0mdebug[0m] [0m	io/streamer/Server.scala[0m
+[0m[[0mdebug[0m] [0m	  /home/iostreamer/io/io/src/main/scala/io/streamer/Server.scala[0m
+[0m[[0minfo[0m] [0mDone packaging.[0m
