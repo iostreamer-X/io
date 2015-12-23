@@ -6,11 +6,11 @@ import rx.lang.scala.Observable
 
 class Server[T](port: Int, execute: Socket => T) {
 	def start() = {
-		val serverSocket = new ServerSocket(port)
 		Observable[T](
 			observer => {
 				new Thread {
 					override def run() = {
+						val serverSocket = new ServerSocket(port)
 						while (true) {
 							val socket = serverSocket.accept()
 							new Thread {
