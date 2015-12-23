@@ -1,4 +1,4 @@
-package labs.amethyst.TheAmethyst
+package io.streamer
 
 import java.net.{ServerSocket, Socket}
 
@@ -6,11 +6,11 @@ import rx.lang.scala.Observable
 
 class Server[T](port: Int, execute: Socket => T) {
 	def start() = {
-		Observable[T](
+		val server = Observable[T] {
+			val serverSocket = new ServerSocket(port)
 			observer => {
 				new Thread {
 					override def run() = {
-						val serverSocket = new ServerSocket(port)
 						while (true) {
 							val socket = serverSocket.accept()
 							new Thread {
@@ -28,7 +28,12 @@ class Server[T](port: Int, execute: Socket => T) {
 					}
 				}.start()
 			}
-		)
+		}
 
+		Observable[T]{
+			observer=>{
+				server.foreach(observer.onNext)
+			}
+		}.cache(1)
 	}
 }
